@@ -30,6 +30,17 @@ var cardsInPlay = [];
 var score = 0;
 
 //functions
+
+var randomizeCards = function() {
+	var tempArray = [];
+	while (cards.length > 0) {
+		var randomIndex = Math.floor(Math.random() * cards.length);
+		var randomCard = cards.splice(randomIndex, 1)[0];
+		tempArray.push(randomCard);
+	}
+	cards = tempArray;
+}
+
 var checkForMatch = function() {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
 		alert("You found a match!");
@@ -53,6 +64,7 @@ var flipCard = function() {
 
 	cardsInPlay.push(cards[cardId].rank);
 	var srcPath = cards[cardId].cardImage;
+	console.log(srcPath);
 	this.setAttribute('src', srcPath);
 
 	if (cardsInPlay.length === 2) {
@@ -81,6 +93,7 @@ var listenForReset = function() {
 	resetBtn.addEventListener('click', resetBoard);
 }
 
+randomizeCards();
 createBoard();
 trackScore();
 listenForReset();
