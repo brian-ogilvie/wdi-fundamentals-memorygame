@@ -64,7 +64,6 @@ var flipCard = function() {
 
 	cardsInPlay.push(cards[cardId].rank);
 	var srcPath = cards[cardId].cardImage;
-	console.log(srcPath);
 	this.setAttribute('src', srcPath);
 
 	if (cardsInPlay.length === 2) {
