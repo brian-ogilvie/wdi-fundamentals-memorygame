@@ -57,6 +57,12 @@ var trackScore = function() {
 }
 
 var flipCard = function() {
+	//reset board if already 2 cards in play
+	if (cardsInPlay.length === 2) {
+		resetBoard();
+		return;
+	}
+	
 	var cardId = this.getAttribute('data-id');
 	/*console.log("User flipped " + cards[cardId].rank);
 	console.log(cards[cardId].suit);
